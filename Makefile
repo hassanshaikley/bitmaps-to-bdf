@@ -1,3 +1,6 @@
+CXXFLAGS=-Wall -O3 -I../common -I.
+
+
 all : font-gen
 
 font-gen : font-gen.cc $(OBJECTS)

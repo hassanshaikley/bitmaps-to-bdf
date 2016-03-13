@@ -2,10 +2,11 @@
 // flaschen taschen starter font 
 // just the fonts, mister.
 //
-#include <map>
-#include <vector>
+#include <stdint.h>
+#include <stdio.h>
+void write_character_data(FILE *f, int ascii, int glyph_number);
 
-    uint8_t glyph[][5] ={
+uint8_t glyph[][5] ={
    // Space
     {	0b00000000,
 	0b00000000,
@@ -433,4 +434,4 @@
 	0b00000000,
 	0b00011111,
 	},
-	};
+};
