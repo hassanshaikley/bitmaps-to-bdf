@@ -16,12 +16,13 @@
 // Output file is 5x5.bdf
 int main(int argc, char *argv[]) {
 
-  system("cp header.txt 5x5.bdf");
-    
+//  system("cp header.txt 5x5.bdf");
 
-  FILE *f = fopen("5x5.bdf", "w");
-//  fprintf(f, "%02x", 32);
-  
+
+  //FILE *f = fopen("5x5.bdf", "w");
+  FILE *f = stdout;
+  //  fprintf(f, "%02x", 32);
+
   for(int incr=0; incr < sizeof(glyph)/sizeof(*glyph);++incr){
     fprintf(f, "STARTCHAR %c\n", ( incr+'!'));
     fprintf(f, "ENCODING %d\n", ( incr+'!'));
@@ -37,9 +38,10 @@ int main(int argc, char *argv[]) {
     //convert first 4 bits to hex, and second 4 bits to hex, then print.. continue for all 5 rows 
     //glyph[incr] to hex
     system(("echo '" + std::to_string(glyph[incr][0]) + "' >>5x5.bdf").c_str()); 
-    */
+     */
     fprintf(f, "ENDCHAR\n");
   }
   //system("echo 'ENDFONT' >>5x5.bdf" );
+  fprintf(f, "ENDFONT\n");
   fclose(f);
 }
