@@ -16,6 +16,6 @@ Then compile.
 
 Then run 
 
-> (cat header.txt ; ./font-gen) > target_file.bdf
+    > (cat header.txt ; ./font-gen) > target_file.bdf
 
 

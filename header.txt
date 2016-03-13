@@ -24,7 +24,6 @@ FONT_ASCENT 5
 FONT_DESCENT 1
 DESTINATION 1
 COPYRIGHT "Public domain font.  Share and enjoy."
-_XMBDFED_INFO "Edited with xmbdfed 4.3."
 CAP_HEIGHT 5
 X_HEIGHT 5
 DEFAULT_CHAR 0
