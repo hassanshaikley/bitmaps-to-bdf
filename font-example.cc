@@ -25,10 +25,10 @@ int main(int argc, char *argv[]) {
 
   for(int incr=0; incr < sizeof(glyph)/sizeof(*glyph);++incr){
     
-    if (incr + '!' > 64) { // may need to add less than as well 
+    if (incr + ' ' >= 65) { // may need to add less than as well  (97(a) -33(!) = 64)
       //do this twice
-      fprintf(f, "STARTCHAR %c\n", ( incr+'!'+32));
-      fprintf(f, "ENCODING %d\n", ( incr+'!'+32));
+      fprintf(f, "STARTCHAR %c\n", ( incr+' '+32));
+      fprintf(f, "ENCODING %d\n", ( incr+' '+32));
       fprintf(f, "SWIDTH 540 0\n");
       fprintf(f, "DWIDTH 5 0\n");
       fprintf(f, "BBX 5 5 0 -1\n");
@@ -36,9 +36,10 @@ int main(int argc, char *argv[]) {
       for (int i = 0; i < 5 ; i ++){
 	fprintf(f, "%02x\n", glyph[incr][i] << 3);
       }
+      fprintf(f, "ENDCHAR\n");
     } 
-    fprintf(f, "STARTCHAR %c\n", ( incr+'!'));
-    fprintf(f, "ENCODING %d\n", ( incr+'!'));
+    fprintf(f, "STARTCHAR %c\n", ( incr+' '));
+    fprintf(f, "ENCODING %d\n", ( incr+' '));
     fprintf(f, "SWIDTH 540 0\n");
     fprintf(f, "DWIDTH 5 0\n");
     fprintf(f, "BBX 5 5 0 -1\n");
