@@ -26,11 +26,17 @@ int main(int argc, char *argv[]) {
 
     for(int incr=0; incr < sizeof(glyph)/sizeof(*glyph);++incr){
 
-	// Uses same glyphs for lowercase as it does for upper
+	// if between A and Z duplicate for lowercase
 	if (incr + START_CHAR >= 'A' && incr + START_CHAR <= 'Z') { 
 	    write_character_data(f, incr + START_CHAR + 32, incr); // +32 for lowercase; 
 	}
-	write_character_data(f, incr + START_CHAR, incr); 
+	
+	// if looking at the lowercase, skip over to pass them
+	if (incr + START_CHAR >= 'a') { // Once you reach a, add 26 to skip over the lowercase
+	    write_character_data(f, (incr + START_CHAR + 26), incr); 
+	} else {
+	    write_character_data(f, incr + START_CHAR, incr); 
+	}
     }
 
     fprintf(f, "ENDFONT\n");
