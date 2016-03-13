@@ -24,15 +24,27 @@ int main(int argc, char *argv[]) {
   //  fprintf(f, "%02x", 32);
 
   for(int incr=0; incr < sizeof(glyph)/sizeof(*glyph);++incr){
+    
+    if (incr + '!' > 64) { // may need to add less than as well 
+      //do this twice
+      fprintf(f, "STARTCHAR %c\n", ( incr+'!'+32));
+      fprintf(f, "ENCODING %d\n", ( incr+'!'+32));
+      fprintf(f, "SWIDTH 540 0\n");
+      fprintf(f, "DWIDTH 5 0\n");
+      fprintf(f, "BBX 5 5 0 -1\n");
+      fprintf(f, "BITMAP\n");
+      for (int i = 0; i < 5 ; i ++){
+	fprintf(f, "%02x\n", glyph[incr][i] << 3);
+      }
+    } 
     fprintf(f, "STARTCHAR %c\n", ( incr+'!'));
     fprintf(f, "ENCODING %d\n", ( incr+'!'));
     fprintf(f, "SWIDTH 540 0\n");
     fprintf(f, "DWIDTH 5 0\n");
-    fprintf(f, "DWIDTH BBX 5 5 0 -1\n");
+    fprintf(f, "BBX 5 5 0 -1\n");
     fprintf(f, "BITMAP\n");
     for (int i = 0; i < 5 ; i ++){
-      fprintf(f, "%02x\n", glyph[incr][i]);
-
+      fprintf(f, "%02x\n", glyph[incr][i] << 3);
     }
     /*
     //convert first 4 bits to hex, and second 4 bits to hex, then print.. continue for all 5 rows 

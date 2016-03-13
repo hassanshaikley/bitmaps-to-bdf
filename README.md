@@ -1,5 +1,5 @@
 How to run:
 
-    make
+    > make
 
-    (cat header.txt ; ./font-example) > 5x5.bdf
+    > (cat header.txt ; ./font-example) > 5x5.bdf
