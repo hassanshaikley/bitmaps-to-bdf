@@ -16,37 +16,30 @@
 // Output file is 5x5.bdf
 int main(int argc, char *argv[]) {
 
-  char a = '!';
-  uint8_t * exclam = glyph[a - '!'];
-
   system("cp header.txt 5x5.bdf");
+    
 
-  //FUcking up for ' lol
+  FILE *f = fopen("5x5.bdf", "w");
+//  fprintf(f, "%02x", 32);
+  
   for(int incr=0; incr < sizeof(glyph)/sizeof(*glyph);++incr){
-    std::string STARTCHAR =  "STARTCHAR ";
-    STARTCHAR += (incr+ '!');
+    fprintf(f, "STARTCHAR %c\n", ( incr+'!'));
+    fprintf(f, "ENCODING %d\n", ( incr+'!'));
+    fprintf(f, "SWIDTH 540 0\n");
+    fprintf(f, "DWIDTH 5 0\n");
+    fprintf(f, "DWIDTH BBX 5 5 0 -1\n");
+    fprintf(f, "BITMAP\n");
+    for (int i = 0; i < 5 ; i ++){
+      fprintf(f, "%02x\n", glyph[incr][i]);
 
-    std::string call = "echo ";
-    call+= STARTCHAR;
-    call+= " >>5x5.bdf"; 
-    system(("echo '"+ STARTCHAR + "' >>5x5.bdf" ).c_str());
-    system(("echo 'ENCODING '"+ std::to_string(incr +'!') +" >>5x5.bdf" ).c_str());
-    system(("echo 'ENCODING '"+ std::to_string(incr +'!') +" >>5x5.bdf" ).c_str());
-    system("echo 'SWIDTH 540 0' >>5x5.bdf" );
-    system("echo 'DWIDTH 5 0' >>5x5.bdf" );
-    system("echo 'DWIDTH BBX 5 5 0 -1' >>5x5.bdf" );
-    system("echo 'BITMAP' >>5x5.bdf" );
+    }
     /*
-       BBX 4 6 0 -1
-       BITMAP
-       00
-       00
-       00
-       00
-       00
-       00
-     */
-    system("echo 'ENDCHAR' >> 5x5.bdf");
+    //convert first 4 bits to hex, and second 4 bits to hex, then print.. continue for all 5 rows 
+    //glyph[incr] to hex
+    system(("echo '" + std::to_string(glyph[incr][0]) + "' >>5x5.bdf").c_str()); 
+    */
+    fprintf(f, "ENDCHAR\n");
   }
-  system("echo 'ENDFONT' >>5x5.bdf" );
+  //system("echo 'ENDFONT' >>5x5.bdf" );
+  fclose(f);
 }
