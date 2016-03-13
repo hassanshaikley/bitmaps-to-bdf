@@ -5,21 +5,14 @@ MAGICK_LDFLAGS=`GraphicsMagick++-config --ldflags --libs`
 
 FFMPEG_LDFLAGS=`pkg-config --cflags --libs  libavcodec libavformat libswscale libavutil`
 
-all : font-example
+all : font-gen
 
-
-font-example : font-example.cc $(OBJECTS)
-
-send-image : send-image.cc $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -o $@ $^ $(MAGICK_LDFLAGS)
-
-send-video: send-video.cc $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(FFMPEG_LDFLAGS)
+font-gen : font-gen.cc $(OBJECTS)
 
 % : %.cc
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-font-example : font-example.cc  $(OBJECTS)
+font-gen : font-gen.cc  $(OBJECTS)
 	$(CXX) $(CXXFLAGS)  -o $@ $^
 clean:
-	rm -f send-image send-video font-example $(OBJECTS)
+	rm -f font-gen $(OBJECTS)
