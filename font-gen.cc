@@ -2,9 +2,6 @@
 // generates font data from the bitmaps in flaschen-taschen-font.h
 
 #include "flaschen-taschen-font.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
 
