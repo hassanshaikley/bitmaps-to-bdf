@@ -1,4 +1,4 @@
-STARTFONT 2.1
+STARTFONT 1.0
 COMMENT Contributed by Hassan Shaikley<hassan.shaikley@gmail.com>
 COMMENT $Id: 5x5.bdf,v 1.5 2055-08-26 18:05:49+01 mgk25 Rel $
 FONT -Misc-Fixed-Five-Five-R-Normal--5-50-75-75-C-50-ISO10646-1
@@ -23,7 +23,7 @@ CHARSET_ENCODING "1"
 FONT_ASCENT 5
 FONT_DESCENT 1
 DESTINATION 1
-COPYRIGHT "Public domain font.  Share and enjoy."
+COPYRIGHT "Public domain font. Share and enjoy."
 CAP_HEIGHT 5
 X_HEIGHT 5
 DEFAULT_CHAR 0
