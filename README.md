@@ -2,25 +2,19 @@
 
 I use this to create my own custom pixelated fonts out of bitmaps
 
-You can use this to generate your own fonts.
-
 ## How to run
 
-    > make
+`make`
 
-    > (cat header.txt ; ./font-gen) > [filename].bdf
+`(cat header.txt ; ./font-gen) > [filename].bdf`
 
 
 This generator uses the upper case fonts for the lowercase ones as well.
 
-## How to create your own fonts
+## How to edit the outputted font
 
-Modify the .h file, which consists of several bitmaps.
+1. Modify the .h file, which consists of several bitmaps
 
-Then compile.
+2. Compile
 
-Then run 
-
-    > (cat header.txt ; ./font-gen) > [filename].bdf
-
-
+3. Run `(cat header.txt ; ./font-gen) > [filename].bdf`
