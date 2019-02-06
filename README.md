@@ -1,4 +1,4 @@
-# bitmaps-to-bmp
+# bitmaps-to-bdf
 
 I use this to create my own custom pixelated fonts out of bitmaps
 
